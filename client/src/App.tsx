@@ -11,7 +11,7 @@ const TestPage = lazy(() => import("@/pages/test/index"));
 const LoadingFallback = () => (
   <div className="flex flex-col items-center justify-center min-h-screen w-full px-4 min-w-0 overflow-visible">
     <span
-      className="inline-block w-auto whitespace-nowrap text-center text-4xl md:text-6xl font-bold mb-8 pb-36 leading-normal bg-gradient-to-r from-pink-400 via-[#F8E1E7] to-[#C6C1D1] bg-clip-text text-transparent animate-gradient-move"
+      className="inline-block w-auto whitespace-nowrap text-center text-4xl md:text-6xl font-bold mb-8 pb-36 leading-normal bg-gradient-to-r from-[#222] via-[#888] to-[#fff] bg-clip-text text-transparent animate-gradient-move"
       style={{
         WebkitBackgroundClip: "text",
         WebkitTextFillColor: "transparent",
@@ -19,7 +19,7 @@ const LoadingFallback = () => (
         textShadow: "0 1px 1px rgba(0,0,0,0.01)"
       }}
     >
-      Marry Signal
+      Couple Signal
     </span>
   </div>
 );

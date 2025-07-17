@@ -172,5 +172,5 @@
 
 .animate-gradient-move {
   background-size: 300% 100%;
-  animation: gradient-move 2s linear infinite;
+  animation: gradient-move 1s linear infinite;
 }
