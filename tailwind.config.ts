@@ -63,6 +63,7 @@ export default {
           border: "var(--sidebar-border)",
           ring: "var(--sidebar-ring)",
         },
+        faab94: '#FAAB94',
       },
       keyframes: {
         "accordion-down": {

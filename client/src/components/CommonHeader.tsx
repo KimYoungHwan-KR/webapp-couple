@@ -14,10 +14,10 @@ export default function CommonHeader({ colorMode = "default" }: CommonHeaderProp
           <div className="flex items-center space-x-3">
             {/* 로고와 텍스트 클릭 시 홈으로 이동 */}
             <Link href="/" className="flex items-center space-x-3 cursor-pointer">
-              <div className="w-11 h-11 bg-pink-400 rounded-full flex items-center justify-center">
-                <span className="text-base font-extrabold text-white tracking-widest select-none">M/S</span>
+              <div className="w-11 h-11 bg-faab94 rounded-full flex items-center justify-center">
+                <CreditCard className="w-6 h-6 text-white" />
               </div>
-              <h1 className="text-2xl font-bold text-pink-400">Marry Signal</h1>
+              <h1 className="text-2xl font-bold text-faab94">Couple Signal</h1>
             </Link>
           </div>
         </div>
