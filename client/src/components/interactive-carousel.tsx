@@ -69,12 +69,12 @@ const slides: CarouselSlide[] = [
 ];
 
 // 시그널 카드 SVG 아이콘 (home.tsx 4번째 카드와 동일)
-const SignalCardIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" className="h-32 w-32 white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+const SignalCardIcon = ({ color = "#FAAB94" }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" className="h-32 w-32" fill="none" viewBox="0 0 24 24" stroke={color} strokeWidth={2}>
     <circle cx="11" cy="11" r="7" />
     <line x1="21" y1="21" x2="16.65" y2="16.65" />
     {/* 하트 추가 */}
-    <path d="M11 9 C9 7, 6 11, 11 14 C16 11, 13 7, 11 9 Z" fill="white" stroke="none"/>
+    <path d="M11 9 C9 7, 6 11, 11 14 C16 11, 13 7, 11 9 Z" fill={color} stroke="none"/>
   </svg>
 );
 
@@ -152,8 +152,17 @@ export default function InteractiveCarousel() {
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
+      {/* 상단 9% 바 */}
+      <div style={{height: '9%', minHeight: 24, background: '#FAAB94', position: 'absolute', top: 0, left: 0, right: 0, zIndex: 20, borderTopLeftRadius: '1rem', borderTopRightRadius: '1rem'}}>
+        {/* 동그라미 3개 */}
+        <div style={{ display: 'flex', alignItems: 'center', height: '100%', paddingLeft: 20, gap: 8 }}>
+          <span style={{ width: 12, height: 12, borderRadius: '50%', background: '#FF7D59', display: 'inline-block' }} />
+          <span style={{ width: 12, height: 12, borderRadius: '50%', background: '#FFDE94', display: 'inline-block' }} />
+          <span style={{ width: 12, height: 12, borderRadius: '50%', background: '#D1D161', display: 'inline-block' }} />
+        </div>
+      </div>
       {/* Carousel Container */}
-      <div className="overflow-hidden rounded-2xl shadow-2xl">
+      <div className="overflow-hidden rounded-2xl shadow-2xl" style={{background: '#FFFAED', position: 'relative'}}>
         <div
           className="flex transition-transform duration-500 ease-in-out"
           style={{ transform: `translateX(-${currentSlide * 100}%)` }}
@@ -165,7 +174,7 @@ export default function InteractiveCarousel() {
             <div key={slide.id} className="w-full flex-shrink-0">
               <div
                 className={"p-4 sm:p-6 md:p-8 lg:p-12 text-white relative overflow-hidden min-h-[400px] sm:min-h-[450px] md:min-h-[500px]"}
-                style={{ background: "linear-gradient(to bottom, #BE5985 0%, #FFB8E0 80%, #FFEDFA 100%)" }}
+                style={{ background: 'transparent' }}
               >
                 {/*
                 <div className="absolute inset-0 opacity-8 pointer-events-none">
@@ -176,14 +185,36 @@ export default function InteractiveCarousel() {
                 */}
 
                 <div className="relative z-10 flex flex-col lg:grid lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 h-full min-h-[400px]">
-                  <div className="flex flex-col justify-center h-full text-center lg:text-left">
-                    <div className="inline-block bg-white/20 rounded-full px-3 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium">
-                      {slide.category}
+                  <div className="flex justify-center items-center h-full mt-0 order-2 lg:order-1">
+                    <div className="w-40 h-40 sm:w-60 sm:h-60 lg:w-80 lg:h-80 bg-white/10 rounded-2xl sm:rounded-3xl flex items-center justify-center backdrop-blur-sm" style={{ border: '3px solid #FAAB94' }}>
+                      {(() => {
+                        switch (slide.category) {
+                          case "브랜드 소개":
+                            return <span className="text-7xl font-extrabold" style={{ color: '#FAAB94' }}>M/S</span>;
+                          case "시그널 테스트":
+                            return <span className="text-9xl font-extrabold" style={{ color: '#FAAB94' }}>?</span>;
+                          case "시그널 조합":
+                            return <span className="text-9xl font-extrabold" style={{ color: '#FAAB94' }}>+</span>;
+                          case "시그널 약속서":
+                            return <span className="text-9xl font-extrabold" style={{ color: '#FAAB94' }}>=</span>;
+                          case "시그널 카드":
+                            return <SignalCardIcon color="#FAAB94" />;
+                          default:
+                            return null;
+                        }
+                      })()}
                     </div>
-                    <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold py-6 leading-tight">
+                  </div>
+                  <div className="flex flex-col justify-center h-full text-center lg:text-left order-1 lg:order-2">
+                    <div className="flex justify-center lg:justify-start">
+                      <span className="inline-block rounded-full px-3 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium mt-10" style={{ background: 'rgba(255, 125, 89, 0.2)', color: '#FF7D59' }}>
+                        {slide.category}
+                      </span>
+                    </div>
+                    <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold py-4 leading-tight" style={{ color: '#222' }}>
                       {slide.title}
                     </h3>
-                    <p className="text-sm sm:text-base md:text-lg lg:text-xl opacity-90 pb-6 leading-relaxed">
+                    <p className="text-sm sm:text-base md:text-lg lg:text-xl opacity-90 pb-4 leading-relaxed" style={{ color: '#222' }}>
                       {slide.description.split('\n').map((line, idx) => (
                         <React.Fragment key={idx}>
                           {line}
@@ -191,26 +222,6 @@ export default function InteractiveCarousel() {
                         </React.Fragment>
                       ))}
                     </p>
-                  </div>
-                  <div className="flex justify-center items-center h-full mt-0">
-                    <div className="w-40 h-40 sm:w-60 sm:h-60 lg:w-80 lg:h-80 bg-white/10 rounded-2xl sm:rounded-3xl flex items-center justify-center backdrop-blur-sm">
-                      {(() => {
-                        switch (slide.category) {
-                          case "브랜드 소개":
-                            return <span className="text-7xl font-extrabold text-white select-none">M/S</span>;
-                          case "시그널 테스트":
-                            return <span className="text-9xl font-extrabold text-white select-none">?</span>;
-                          case "시그널 조합":
-                            return <span className="text-9xl font-extrabold text-white select-none">+</span>;
-                          case "시그널 약속서":
-                            return <span className="text-9xl font-extrabold text-white select-none">=</span>;
-                          case "시그널 카드":
-                            return <SignalCardIcon />;
-                          default:
-                            return null;
-                        }
-                      })()}
-                    </div>
                   </div>
                 </div>
               </div>
@@ -247,7 +258,7 @@ export default function InteractiveCarousel() {
             size="sm"
             className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full p-0 transition-all duration-300 ${
               index === currentSlide
-                ? "bg-pink-500 hover:bg-pink-600"
+                ? "bg-[#FAAB94] hover:bg-[#FAAB94]"
                 : "bg-gray-300 hover:bg-gray-400"
             }`}
             onClick={() => goToSlide(index)}
