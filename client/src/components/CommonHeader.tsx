@@ -14,10 +14,7 @@ export default function CommonHeader({ colorMode = "default" }: CommonHeaderProp
           <div className="flex items-center space-x-2 sm:space-x-3">
             {/* 로고와 텍스트 클릭 시 홈으로 이동 */}
             <Link href="/" className="flex items-center space-x-2 sm:space-x-3 cursor-pointer">
-              <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-full flex items-center justify-center" style={{ background: '#2C2C34' }}>
-                <CreditCard className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
-              </div>
-              <h1 className="text-lg sm:text-2xl font-bold" style={{ color: '#2C2C34' }}>Couple Signal</h1>
+              <h1 className="text-lg sm:text-2xl font-bold pl-2 sm:pl-4" style={{ color: '#2C2C34' }}>Couple Signal</h1>
             </Link>
           </div>
         </div>
