@@ -14,7 +14,6 @@ interface CarouselSlide {
   title: string;
   description: string;
   category: string;
-  gradientClass: string;
   icon: typeof Bolt;
   isHot?: boolean;
 }
@@ -22,11 +21,10 @@ interface CarouselSlide {
 const slides: CarouselSlide[] = [
   {
     id: 1,
-    title: "Marry Signal",
+    title: "Couple Signal",
     description:
-      "결혼 준비의 설렘과 감성을 담은 Marry Signal입니다.\n저희 브랜드만의 특별한 시그널 카드를 통해\n재밌는 경험을 지금 바로 만나보세요.",
+      "연인과의 설렘과 감성을 담은 Couple Signal입니다.\n저희 브랜드만의 특별한 시그널 카드를 통해\n재밌는 경험을 지금 바로 만나보세요.",
     category: "브랜드 소개",
-    gradientClass: "bg-gradient-to-b from-[#BE5985] via-[#FFB8E0] to-[#FFEDFA]",
     icon: Bolt,
     isHot: true,
   },
@@ -36,41 +34,37 @@ const slides: CarouselSlide[] = [
     description:
       "감성 테스트로 나만의 시그널 카드를 만들어보세요.\n다양한 테스트를 통해 특별한 시그널 카드를 수집하여\n연인과 함께 비교하며 경험할 수 있습니다.",
     category: "시그널 테스트",
-    gradientClass: "bg-gradient-to-b from-[#BE5985] via-[#FFB8E0] to-[#FFEDFA]",
     icon: TrendingUp,
   },
   {
     id: 3,
     title: "우리의 시그널 조합",
     description:
-      "두 사람의 시그널을 연결해 커플 궁합을 확인하세요.\n다양한 테스트를 통해 수집한 시그널 카드를 연인과\n함께 조합하여 궁합을 확인해보세요.",
+      "연인과 시그널 카드를 연결하여 조합을 확인하세요.\n수집한 다양한 시그널 카드끼리 연결하여\n연인과의 궁합을 확인해보세요.",
     category: "시그널 조합",
-    gradientClass: "bg-gradient-to-b from-[#BE5985] via-[#FFB8E0] to-[#FFEDFA]",
     icon: Globe,
   },
   {
     id: 4,
     title: "우리의 시그널 약속서",
     description:
-      "함께 쓰는 시그널 약속서로 우리의 다짐을 기록하세요.\n시그널 카드와 조합 카드를 기반으로 둘만의\n소중한 약속을 추천해주고 작성을 할 수 있습니다.",
+      "함께 쓰는 시그널 약속서로 연인과 약속을 기록하세요.\n시그널 카드와 조합 카드를 기반으로 둘만의\n소중한 약속을 추천해주고 작성을 할 수 있습니다.",
     category: "시그널 약속서",
-    gradientClass: "bg-gradient-to-b from-[#BE5985] via-[#FFB8E0] to-[#FFEDFA]",
     icon: Globe,
   },
   {
     id: 5,
     title: "우리의 시그널 카드",
     description:
-      "이때까지 얻은 시그널 카드 및 약속서를 한눈에 보세요.\n수집한 다양한 카드들을 사용자들이 원하는 느낌으로\n예쁘게 꾸밀 수 있습니다.",
+      "지금까지 얻은 다양한 카드들을 예쁘게 꾸며보세요.\n수집한 다양한 카드들을 사용자들이 직접\n예쁘게 꾸밀 수 있습니다.",
     category: "시그널 카드",
-    gradientClass: "bg-gradient-to-b from-[#BE5985] via-[#FFB8E0] to-[#FFEDFA]",
     icon: TrendingUp,
   },
 ];
 
 // 시그널 카드 SVG 아이콘 (home.tsx 4번째 카드와 동일)
-const SignalCardIcon = ({ color = "#FAAB94" }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" className="h-32 w-32" fill="none" viewBox="0 0 24 24" stroke={color} strokeWidth={2}>
+const SignalCardIcon = ({ color = "#FAAB94", size = "100%" }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" className="h-full w-full" width={size} height={size} fill="none" viewBox="0 0 24 24" stroke={color} strokeWidth={2}>
     <circle cx="11" cy="11" r="7" />
     <line x1="21" y1="21" x2="16.65" y2="16.65" />
     {/* 하트 추가 */}
@@ -190,15 +184,19 @@ export default function InteractiveCarousel() {
                       {(() => {
                         switch (slide.category) {
                           case "브랜드 소개":
-                            return <span className="text-7xl font-extrabold" style={{ color: '#FAAB94' }}>M/S</span>;
+                            return <span className="text-7xl font-extrabold lg:text-[8rem] -mt-4 lg:-mt-6" style={{ color: '#FAAB94' }}>C/S</span>;
                           case "시그널 테스트":
-                            return <span className="text-9xl font-extrabold" style={{ color: '#FAAB94' }}>?</span>;
+                            return <span className="text-9xl font-extrabold lg:text-[10rem] -mt-4 lg:-mt-6" style={{ color: '#FAAB94' }}>?</span>;
                           case "시그널 조합":
-                            return <span className="text-9xl font-extrabold" style={{ color: '#FAAB94' }}>+</span>;
+                            return <span className="text-9xl font-extrabold lg:text-[10rem] -mt-4 lg:-mt-6" style={{ color: '#FAAB94' }}>+</span>;
                           case "시그널 약속서":
-                            return <span className="text-9xl font-extrabold" style={{ color: '#FAAB94' }}>=</span>;
+                            return <span className="text-9xl font-extrabold lg:text-[10rem] -mt-4 lg:-mt-6" style={{ color: '#FAAB94' }}>=</span>;
                           case "시그널 카드":
-                            return <SignalCardIcon color="#FAAB94" />;
+                            return (
+                              <span className="block w-32 h-32 lg:w-[12rem] lg:h-[12rem]" style={{ lineHeight: 0 }}>
+                                <SignalCardIcon color="#FAAB94" size="100%" />
+                              </span>
+                            );
                           default:
                             return null;
                         }
