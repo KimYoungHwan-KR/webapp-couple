@@ -7,7 +7,7 @@ import CommonFooter from "@/components/CommonFooter";
 import React, { useRef, useState } from "react";
 
 const BRAND_COLORS = [
-  "#FFEDFA", // 크림핑크
+  "rgba(255,250,237,0.7)", // 크림베이지(투명도 0.7)
   "#FFB8E0", // 연핑크
 ];
 
