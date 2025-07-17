@@ -156,7 +156,7 @@ export default function InteractiveCarousel() {
         </div>
       </div>
       {/* Carousel Container */}
-      <div className="overflow-hidden rounded-2xl shadow-2xl" style={{background: '#FFFAED', position: 'relative'}}>
+      <div className="overflow-hidden rounded-2xl shadow-lg" style={{background: '#FFFAED', position: 'relative'}}>
         <div
           className="flex transition-transform duration-500 ease-in-out"
           style={{ transform: `translateX(-${currentSlide * 100}%)` }}
