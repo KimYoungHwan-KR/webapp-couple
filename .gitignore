@@ -1,0 +1,30 @@
+# node_modules: 의존성 폴더 (필수)
+node_modules/
+
+# 빌드 결과물
+/dist/
+/build/
+
+# Mac, Windows, IDE 관련 불필요 파일
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# 환경 변수 파일 (민감 정보)
+.env
+.env.*
+
+# 로그 파일
+*.log
+
+# 기타 불필요한 파일
+*.tar.gz
+
+# 서버 퍼블릭 폴더 (만약 빌드 산출물이라면)
+server/public/
+
+# Vite 설정 백업 등
+vite.config.ts.*
+
+# git 커밋 테스트
