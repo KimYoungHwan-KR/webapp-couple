@@ -27,4 +27,4 @@ server/public/
 # Vite 설정 백업 등
 vite.config.ts.*
 
-# git 커밋 테스트
+.cursor
