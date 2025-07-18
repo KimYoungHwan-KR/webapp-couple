@@ -1,12 +1,13 @@
 import { CreditCard } from "lucide-react";
 import { Link } from "wouter";
+import React from "react";
 
 interface CommonHeaderProps {
   colorMode?: "black" | "default";
   gradient?: string;
 }
 
-export default function CommonHeader({ colorMode = "default" }: CommonHeaderProps) {
+const CommonHeader = React.memo(function CommonHeader({ colorMode = "default" }: CommonHeaderProps) {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white backdrop-blur-md shadow-sm">
       <nav className="container mx-auto px-2 sm:px-3 pt-1 pb-2 sm:py-2">
@@ -21,4 +22,6 @@ export default function CommonHeader({ colorMode = "default" }: CommonHeaderProp
       </nav>
     </header>
   );
-} 
+});
+
+export default CommonHeader; 

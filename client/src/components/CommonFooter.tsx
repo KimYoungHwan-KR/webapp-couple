@@ -1,4 +1,6 @@
-export default function CommonFooter() {
+import React from 'react';
+
+const CommonFooter = React.memo(function CommonFooter() {
   return (
     <footer className="bg-gray-900 text-white py-16 mt-16">
       <div className="container mx-auto px-6">
@@ -8,4 +10,6 @@ export default function CommonFooter() {
       </div>
     </footer>
   );
-} 
+});
+
+export default CommonFooter; 

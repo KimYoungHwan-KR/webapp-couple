@@ -72,7 +72,7 @@ const SignalCardIcon = ({ color = "#FAAB94", size = "100%" }) => (
   </svg>
 );
 
-export default function InteractiveCarousel() {
+const InteractiveCarousel = React.memo(function InteractiveCarousel() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
@@ -265,4 +265,6 @@ export default function InteractiveCarousel() {
       </div>
     </div>
   );
-}
+});
+
+export default InteractiveCarousel;
