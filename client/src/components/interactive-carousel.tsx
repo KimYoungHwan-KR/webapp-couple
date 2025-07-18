@@ -232,7 +232,7 @@ const InteractiveCarousel = React.memo(function InteractiveCarousel() {
       <Button
         variant="outline"
         size="icon"
-        className="absolute -left-5 sm:-left-7 top-1/2 -translate-y-1/2 w-14 h-14 sm:w-16 sm:h-16 bg-gray-100 hover:bg-gray-200 rounded-full shadow-lg border-0 hover:scale-110 transition-all duration-300 z-20"
+        className="absolute -left-5 sm:-left-7 top-1/2 -translate-y-1/2 w-12 h-12 sm:w-14 sm:h-14 bg-gray-100 hover:bg-gray-200 rounded-full shadow-lg border-0 hover:scale-110 transition-all duration-300 z-20"
         onClick={prevSlide}
       >
         <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6 text-gray-700 hover:text-pink-500" />
@@ -241,7 +241,7 @@ const InteractiveCarousel = React.memo(function InteractiveCarousel() {
       <Button
         variant="outline"
         size="icon"
-        className="absolute -right-5 sm:-right-7 top-1/2 -translate-y-1/2 w-14 h-14 sm:w-16 sm:h-16 bg-gray-100 hover:bg-gray-200 rounded-full shadow-lg border-0 hover:scale-110 transition-all duration-300 z-20"
+        className="absolute -right-5 sm:-right-7 top-1/2 -translate-y-1/2 w-12 h-12 sm:w-14 sm:h-14 bg-gray-100 hover:bg-gray-200 rounded-full shadow-lg border-0 hover:scale-110 transition-all duration-300 z-20"
         onClick={nextSlide}
       >
         <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6 text-gray-700 hover:text-pink-500" />
