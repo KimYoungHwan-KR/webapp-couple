@@ -3,10 +3,10 @@ import { Suspense, lazy } from "react";
 import { Toaster } from "@/components/ui/toaster";
 
 const Home = lazy(() => import("@/pages/home"));
-const PromisePage = lazy(() => import("@/pages/promise/index"));
-const MixPage = lazy(() => import("@/pages/mix/index"));
-const CardPage = lazy(() => import("@/pages/card/index"));
-const TestPage = lazy(() => import("@/pages/test/index"));
+const PromisePage = lazy(() => import("@/pages/promise/promise"));
+const MixPage = lazy(() => import("@/pages/mix/mix"));
+const CardPage = lazy(() => import("@/pages/card/card"));
+const TestPage = lazy(() => import("@/pages/test/test"));
 
 const LoadingFallback = () => (
   <div className="flex flex-col items-center justify-center min-h-screen w-full px-4 min-w-0 overflow-visible">
