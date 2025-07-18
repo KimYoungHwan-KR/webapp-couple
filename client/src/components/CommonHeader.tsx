@@ -3,7 +3,7 @@ import { Link } from "wouter";
 import React from "react";
 
 interface CommonHeaderProps {
-  colorMode?: "black" | "default";
+  colorMode?: "black" | "default" | "test";
   gradient?: string;
 }
 
@@ -15,7 +15,12 @@ const CommonHeader = React.memo(function CommonHeader({ colorMode = "default" }:
           <div className="flex items-center space-x-2 sm:space-x-3">
             {/* 로고와 텍스트 클릭 시 홈으로 이동 */}
             <Link href="/" className="flex items-center space-x-2 sm:space-x-3 cursor-pointer">
-              <h1 className="text-lg sm:text-2xl font-bold pl-2 sm:pl-4" style={{ color: '#2C2C34' }}>Couple Signal</h1>
+              <h1
+                className="text-lg sm:text-2xl font-bold pl-2 sm:pl-4"
+                style={{ color: colorMode === 'test' ? '#FF987C' : '#2C2C34' }}
+              >
+                Couple Signal
+              </h1>
             </Link>
           </div>
         </div>

@@ -7,6 +7,7 @@ const PromisePage = lazy(() => import("@/pages/promise/promise"));
 const MixPage = lazy(() => import("@/pages/mix/mix"));
 const CardPage = lazy(() => import("@/pages/card/card"));
 const TestPage = lazy(() => import("@/pages/test/test"));
+const Test1Page = lazy(() => import("@/pages/test/Test1Page"));
 
 const LoadingFallback = () => (
   <div className="flex flex-col items-center justify-center min-h-screen w-full px-4 min-w-0 overflow-visible">
@@ -33,6 +34,7 @@ export default function App() {
         <Route path="/mix" component={MixPage} />
         <Route path="/card" component={CardPage} />
         <Route path="/test" component={TestPage} />
+        <Route path="/test/test1" component={Test1Page} />
       </Switch>
       <Toaster />
     </Suspense>
